@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // TODO Auto-generated method stub
         Intent intent =null;
@@ -28,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
         {
             case R.id.m1: intent = new Intent(this, theatre.class);
                 break;
+            case R.id.m2: intent = new Intent(this, films.class);
+                break;
+            case R.id.m3: intent = new Intent(this, newtheatre.class);
+                break;
+            case R.id.m4: intent = new Intent(this, newfilm.class);
+                break;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

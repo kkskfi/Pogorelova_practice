@@ -25,15 +25,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class films extends AppCompatActivity {
+    MyTask mt;
     TextView tvInfo;
-    films.MyTask mt;
     EditText tvName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_films);
+        tvInfo = (TextView) findViewById(R.id.tvInfo);
+        tvName = (EditText) findViewById(R.id.editTextTextPersonName);
     }
+
     class MyTask extends AsyncTask<String, Void, ArrayList<String[]>> {
         @Override
         protected void onPreExecute() {
@@ -150,7 +153,9 @@ public class films extends AppCompatActivity {
         mt = new films.MyTask();
         mt.execute(tvName.getText().toString());
     }
-    class ClAdapter extends BaseAdapter {
+
+
+    class ClAdapter extends BaseAdapter{
         Context ctx;
         LayoutInflater lInflater;
         List<String[]> lines;
@@ -177,12 +182,11 @@ public class films extends AppCompatActivity {
         {
             View view = convertView;
             if (view == null) {
-                view = lInflater.inflate(R.layout.item2, parent, false);
+                view = lInflater.inflate(R.layout.item, parent, false);
             };
             String[] p =(String[]) getItem(position);
-            ((TextView) view.findViewById(R.id.tvText2)).setText(p[0]);
-            ((TextView) view.findViewById(R.id.tvText)).setText(p[1]);
-            ((TextView) view.findViewById(R.id.tvText1)).setText(p[2]);
+            ((TextView) view.findViewById(R.id.tvText)).setText(p[0]);
+            ((TextView) view.findViewById(R.id.tvText1)).setText(p[1]);
             return view;
         };
     }

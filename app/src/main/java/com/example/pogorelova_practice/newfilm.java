@@ -78,7 +78,7 @@ public class newfilm extends AppCompatActivity {
             }
             myConnection.setDoOutput(true);
             try {
-                myConnection.getOutputStream().write( ("id=3&cinemaID=" + params[0]+"&movieID="+params[1]).getBytes());
+                myConnection.getOutputStream().write( ("id=3&CinemaID=" + params[0]+"&FilmsID="+params[1]).getBytes());
             } catch (IOException e) {
                 e.printStackTrace();
             };
@@ -138,7 +138,7 @@ public class newfilm extends AppCompatActivity {
             }
             myConnection.setDoOutput(true);
             try {
-                myConnection.getOutputStream().write( ("id=2&Name=" + params[0]).getBytes());
+                myConnection.getOutputStream().write( ("id=2&name=" + params[0]).getBytes());
             } catch (IOException e) {
                 e.printStackTrace();
             };
@@ -187,7 +187,7 @@ public class newfilm extends AppCompatActivity {
             tvInfo.setText("Фильм успешно добавлен");
         }
     }
-    class MyTask extends AsyncTask<Void, Void, ArrayList<String[]>>{
+    class MyTask extends AsyncTask<Void, Void, ArrayList<String[]> >{
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
